@@ -28,10 +28,9 @@ SECRET_KEY = 'django-insecure-*6a%_(zrrf71pw)q9uauqy6w2j--@yq^pl$v1m@_y!p2$b8gig
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = [
+    'shipping-cal.up.railway.app',
     'localhost',
     '127.0.0.1',
-    'your-app.railway.app',  # Railway domain
-    'your-custom-domain.com',  # Optional custom domain
 ]
 
 STATIC_URL = '/static/'
@@ -97,13 +96,14 @@ WSGI_APPLICATION = 'shipping_calculator.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_blueraycargo',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': os.getenv('PGDATABASE'),
+        'USER': os.getenv('PGUSER'),
+        'PASSWORD': os.getenv('PGPASSWORD'),
+        'HOST': os.getenv('PGHOST'),
+        'PORT': os.getenv('PGPORT'),
     }
 }
+
 
 
 # Password validation
