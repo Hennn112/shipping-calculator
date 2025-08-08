@@ -29,6 +29,7 @@ SECRET_KEY = 'django-insecure-*6a%_(zrrf71pw)q9uauqy6w2j--@yq^pl$v1m@_y!p2$b8gig
 DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["https://shipping-calculator-production.up.railway.app/", "https://127.0.0.1:8000"]
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
