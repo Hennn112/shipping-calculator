@@ -68,7 +68,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Nuxt dev
-    "https://shipping-cal.vercel.app",  # Deployed frontend
+    "https://shipping-calculator-hendra-rusmana-putras-projects.vercel.app/",
+    "https://shipping-calculator-neon.vercel.app/"
 ]
 
 ROOT_URLCONF = 'shipping_calculator.urls'
