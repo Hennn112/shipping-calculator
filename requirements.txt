@@ -6,3 +6,4 @@ psycopg2-binary>=2.9.0
 gunicorn>=21.0.0
 whitenoise>=6.0.0
 requests>=2.30.0
+django-filter>=23.2.0
