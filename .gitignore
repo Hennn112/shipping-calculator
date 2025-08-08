@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+*.log
+db.sqlite3
+.DS_Store
+node_modules/
+.nuxt/
+.output/
+dist/
+*.env.local
