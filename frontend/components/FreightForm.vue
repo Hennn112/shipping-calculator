@@ -78,7 +78,8 @@
 <script setup>
 const emit = defineEmits(['calculate', 'result'])
 
-const BASE_URL = 'http://localhost:8000/api'
+const config = useRuntimeConfig()
+const BASE_URL = config.public.apiBase
 
 const loading = ref(false)
 const error = ref('')

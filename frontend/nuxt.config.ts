@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   // Runtime config for API base URL
   runtimeConfig: {
     public: {
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || "http://localhost:8000/api",
+      apiBase: "https://shipping-calculator-production.up.railway.app/api",
     },
   },
 
@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   nitro: {
     devProxy: {
       "/api": {
-        target: "http://localhost:8000/api",
+        target: "https://shipping-calculator-production.up.railway.app/api",
         changeOrigin: true,
         pathRewrite: { "^/api": "" },
       },
