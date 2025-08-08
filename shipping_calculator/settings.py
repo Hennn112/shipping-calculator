@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*6a%_(zrrf71pw)q9uauqy6w2j--@yq^pl$v1m@_y!p2$b8gig'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -154,4 +154,4 @@ REST_FRAMEWORK = {
 }
 
 # API Key
-KOMSHIP_API_KEY = os.getenv('KOMSHIP_API_KEY', 'QYVj7TwHa4e6d52e66a3b27dDmbLQcJL')
+KOMSHIP_API_KEY = os.getenv('KOMSHIP_API_KEY')
