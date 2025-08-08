@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
-import dj_database_url
-
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,14 +28,11 @@ SECRET_KEY = 'django-insecure-*6a%_(zrrf71pw)q9uauqy6w2j--@yq^pl$v1m@_y!p2$b8gig
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = [
-    'shipping-cal.up.railway.app',
-    'localhost',
-    '127.0.0.1',
-]
+ALLOWED_HOSTS = ["*"]
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Application definition
 
@@ -94,24 +91,16 @@ WSGI_APPLICATION = 'shipping_calculator.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASE_URL = os.getenv("DATABASE_URL")
-
-if DATABASE_URL:
-    DATABASES = {
-        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('PGDATABASE'),
+        'USER': os.getenv('PGUSER'),
+        'PASSWORD': os.getenv('PGPASSWORD'),
+        'HOST': os.getenv('PGHOST'),
+        'PORT': os.getenv('PGPORT'),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('PGDATABASE', 'db_blueraycargo'),
-            'USER': os.getenv('PGUSER', 'postgres'),
-            'PASSWORD': os.getenv('PGPASSWORD', '1234'),
-            'HOST': os.getenv('PGHOST', '127.0.0.1'),
-            'PORT': os.getenv('PGPORT', '5432'),
-        }
-    }
-
+}
 
 
 # Password validation
